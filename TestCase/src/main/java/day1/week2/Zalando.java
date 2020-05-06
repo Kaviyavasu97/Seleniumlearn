@@ -49,13 +49,12 @@ public class Zalando {
 	 driver.findElementByXPath("//span[text()='Material']").click();
 	 driver.findElementByXPath("//span[text()='Cotton']").click();
 	 driver.findElementById("uc-btn-accept-banner").click();
-	 Thread.sleep(2000);
-	 driver.findElementByXPath("//button[text()='Save']").click();
+	 
 	 Thread.sleep(2000);
 	 driver.findElementByXPath("//span[text()='Length']").click();
 	 driver.findElementByXPath("//span[text()='thigh-length']").click();
 	 driver.findElementByXPath("//button[text()='Save']").click();
-	 Thread.sleep(2000);
+	 Thread.sleep(3000);
 	 driver.findElementByXPath("//div[text()='MANTEL - Parka - navy']/../..").click();
 	 Thread.sleep(2000);
 	 driver.findElementByXPath("(//img[@alt='olive'])[2]").click();
@@ -64,6 +63,7 @@ public class Zalando {
 	 if(text2.contains("Out of stock"))
 	 {
 		 driver.findElementByXPath("(//img[@alt='navy'])[2]").click();
+		 Thread.sleep(2000);
 		 driver.findElementById("picker-trigger").click();
 		 driver.findElementByXPath("//span[text()='M']").click();
 	 }
@@ -84,6 +84,7 @@ public class Zalando {
 	act.moveToElement(ele2).perform();
 	String attribute = driver.findElementByXPath("//a[text()='Free delivery & returns*']//parent::span").getAttribute("title");
 	System.out.println(attribute);
+	driver.findElementByXPath("//a[text()='Free delivery & returns*']");
 	Thread.sleep(3000);
 	driver.findElementByXPath("//span[text()='Start chat']").click();
 	Set<String> windows = driver.getWindowHandles();
