@@ -5,12 +5,14 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -38,6 +40,7 @@ public class Ajio {
 		WebElement elesrc = driver.findElementByXPath("//div[@class='filter-dropdown']/select");
 		Select option = new Select(elesrc);
 		option.selectByVisibleText("What's New");
+		Thread.sleep(2000);
 		//select price
 		driver.findElementByXPath("//span[text()='price']").click();
 		driver.findElementById("minPrice").sendKeys("2500");
@@ -79,6 +82,7 @@ public class Ajio {
 		//add to bag
 		driver.findElementByXPath("//span[text()='ADD TO BAG']").click();
 		Thread.sleep(7000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='GO TO BAG']")));
 		driver.findElementByXPath("//span[text()='GO TO BAG']").click();
 		//check order total
 		String text2 = driver.findElementByXPath("//div[@class='net-price best-price-strip']").getText();
